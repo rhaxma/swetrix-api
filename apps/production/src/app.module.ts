@@ -23,6 +23,7 @@ import { AuthModule } from './auth/auth.module'
 import { CaptchaModule } from './captcha/captcha.module'
 import { OgImageModule } from './og-image/og-image.module'
 import { IntegrationsModule } from './integrations/integrations.module'
+import { CoreModule } from './core/core.module'
 
 const modules = [
   ConfigModule.forRoot({
@@ -81,6 +82,7 @@ const modules = [
     ...modules,
     ...(process.env.ENABLE_INTEGRATIONS === 'true' ? [IntegrationsModule] : []),
     ...(process.env.IS_MASTER_NODE === 'true' ? [TaskManagerModule] : []),
+    CoreModule,
   ],
 })
 export class AppModule {}
